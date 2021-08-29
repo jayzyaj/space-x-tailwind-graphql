@@ -12,9 +12,6 @@ const EXCHANGE_RATES = gql`
       rocket {
         rocket_name
       }
-      ships {
-        image
-      }
       launch_date_utc
     }
   }
