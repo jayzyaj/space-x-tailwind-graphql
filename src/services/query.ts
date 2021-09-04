@@ -22,11 +22,14 @@ const LAUNCH_DETAIL_QUERY = gql`
     launch(id: $id) {
       id
       mission_name
-      details
       links {
         flickr_images
-        mission_patch
+        mission_patch_small
       }
+      rocket {
+        rocket_name
+      }
+      launch_date_utc
     }
   }
 `;
