@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { SpaceLaunchList } from './components/SpaceLaunchList';
+import { LaunchList } from './components/LaunchList';
 
 function App() {
   return (
     <div className="App m-5">
-      <SpaceLaunchList />
+      <LaunchList />
     </div>
   );
 }

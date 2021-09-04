@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const EXCHANGE_RATES = gql`
+const LAUNCH_LIST_QUERY = gql`
   query pastLaunchesList($limit: Int!, $offset: Int!) {
     launchesPast(limit: $limit, offset: $offset) {
       id
@@ -17,4 +17,18 @@ const EXCHANGE_RATES = gql`
   }
 `;
 
-export { EXCHANGE_RATES };
+const LAUNCH_DETAIL_QUERY = gql`
+  query launchDetails($id: ID!) {
+    launch(id: $id) {
+      id
+      mission_name
+      details
+      links {
+        flickr_images
+        mission_patch
+      }
+    }
+  }
+`;
+
+export { LAUNCH_LIST_QUERY, LAUNCH_DETAIL_QUERY };

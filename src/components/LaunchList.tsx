@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { EXCHANGE_RATES } from '../services/query';
+import { LAUNCH_LIST_QUERY } from '../services/query';
 import './styles/space-launch-list.css';
-import { RocketCard } from './RocketCard';
+import { LaunchCard } from './LaunchCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-function SpaceLaunchList() {
-  const { loading, error, data, fetchMore } = useQuery(EXCHANGE_RATES, {
+function LaunchList() {
+  const { loading, error, data, fetchMore } = useQuery(LAUNCH_LIST_QUERY, {
     variables: { offset: 0, limit: 10 },
   });
 
@@ -24,6 +24,7 @@ function SpaceLaunchList() {
     <InfiniteScroll
       dataLength={data.launchesPast.length}
       hasMore
+      scrollThreshold={0.9}
       next={() => {
         fetchMore({
           variables: {
@@ -42,11 +43,11 @@ function SpaceLaunchList() {
     >
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-16">
         {data.launchesPast.map(({ id, mission_name, rocket, links }: any) => (
-          <RocketCard key={id} missionName={mission_name} rocket={rocket} links={links} />
+          <LaunchCard key={id} missionName={mission_name} rocket={rocket} links={links} />
         ))}
       </div>
     </InfiniteScroll>
   );
 }
 
-export { SpaceLaunchList };
+export { LaunchList };

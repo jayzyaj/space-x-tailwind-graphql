@@ -8,13 +8,13 @@ interface RocketLink {
   flickr_images: string[];
 }
 
-export interface Mission {
+export interface Launch {
   missionName: string;
   rocket: Rocket;
-  links:RocketLink;
+  links: RocketLink;
 }
 
-const RocketCard = ({ missionName, rocket, links }: Mission) => (
+const LaunchCard = ({ missionName, rocket, links }: Launch) => (
   <div className="space-card hover-ease-scale cursor-pointer">
     <p className="text-black text-lg font-black cursor-text">
       {missionName}
@@ -26,4 +26,4 @@ const RocketCard = ({ missionName, rocket, links }: Mission) => (
   </div>
 );
 
-export { RocketCard };
+export { LaunchCard };
