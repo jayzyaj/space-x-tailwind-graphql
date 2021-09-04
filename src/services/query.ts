@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const EXCHANGE_RATES = gql`
-  query pastLaunchesList($limit: Int!) {
-    launchesPast(limit: $limit) {
+  query pastLaunchesList($limit: Int!, $offset: Int!) {
+    launchesPast(limit: $limit, offset: $offset) {
       id
       mission_name
       links {
